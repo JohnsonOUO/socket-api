@@ -5,7 +5,7 @@ import struct
 import json
 phone = socket.socket(socket.AF_INET,socket.SOCK_STREAM) #买手机
 phone.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
-phone.bind(('10.20.0.210',7000)) #绑定手机卡
+phone.bind(('0.0.0.0',80)) #绑定手机卡
 phone.listen(5) #阻塞的最大数
 print('start runing.....')
 while True: #链接循环
