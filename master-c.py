@@ -3,10 +3,10 @@ import socket
 import struct
 import json
 phone = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-phone.connect(('10.1.2.147',7070)) #连接服务器
+phone.connect(('kv260.xmutil.ninox',31222)) #连接服务器
 while True:
     # 发收消息
-    cmd = input('请你输入命令>>：').strip()
+    cmd = input('請你輸入命令>>：').strip()
     if not cmd:continue
     phone.send(cmd.encode('utf-8')) #发送
     #先收报头的长度
