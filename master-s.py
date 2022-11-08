@@ -30,12 +30,15 @@ while True: #链接循环
         }
         header_json = json.dumps(header_dic) #字符串类型
         header_bytes = header_json.encode('utf-8')  #转成bytes类型(但是长度是可变的)
-        #先发报头的长度
-        coon.send(struct.pack('i',len(header_bytes))) #发送固定长度的报头
-        #再发报头
-        coon.send(header_bytes)
-        #最后发命令的结果
-        coon.send(stdout)
-        coon.send(stderr)
+        if(len(header_bytes)>48):
+            #先发报头的长度
+            coon.send(struct.pack('i',len(header_bytes))) #发送固定长度的报头
+            #再发报头
+            coon.send(header_bytes)
+            #最后发命令的结果
+            coon.send(stdout)
+            coon.send(stderr)
+        else:
+            break    
     coon.close()
 phone.close()
