@@ -38,6 +38,7 @@ while True: #链接循环
             #最后发命令的结果
             coon.send(stdout)
             coon.send(stderr)
+            break
         else:
             break    
     coon.close()
